@@ -1,5 +1,5 @@
-# -*- Coding: UTF-8 -*-
-# Python 3.X
+# -*- coding: utf-8 -*-
+# Python 3
 # Windows
 # WiFiEx
 # Extractor de Contraseñas de Redes Wi-Fi.
@@ -135,17 +135,17 @@ def SavePasswd():
 	
 	Lineas = Eny.readlines()
 	
-	if Lineas == []: Eny.write("\n [+] Por: LawlietJH - WiFiEx "+Version)
+	if Lineas == []: Eny.write("\n [+] Por: LawlietJH - WiFiEx "+Version+'\n')
 	
 	Usuario = os.popen("echo %UserName%").read().strip()
 	
 	dt = datetime.datetime.now()
 	FH = dt.strftime(" %A %d de %B del %Y - %H:%M ").title()
 	
-	xD += "\n\n" + "\\"*62
+	xD += "\n" + "\\"*62
 	xD += "\n" + "/"*17 + " Nombre de Usuario: " + Usuario + " " + "/"*(23-len(Usuario)) + r"\\"
 	xD += "\n" + "\\"*11 + FH + "\\"*(50-len(FH)) + "//"
-	xD += "\n" + "/"*62 + "\n"
+	xD += "\n" + "/"*62 + "\n\n"
 	
 	Eny.write(xD)
 	
@@ -160,11 +160,11 @@ def SavePasswd():
 	
 	for x in range(Cont):
 		
-		Cad = "\n\t============================================" +\
+		Cad = "\t============================================" +\
 				"\n\t [+] --------- ESSID: " + Redes["ESSID"][x] + " " + "-"*(20-len(Redes["ESSID"][x])) +\
 				"\n\t  |  ---- Contraseña: " + Redes["PWD"][x] + " " + "-"*(20-len(Redes["PWD"][x])) +\
 				"\n\t [+] ----- Seguridad: " + Redes["SEG"][x] + " " + "-"*(20-len(Redes["SEG"][x])) +\
-				"\n\t============================================"
+				"\n\t============================================\n"
 		
 		Eny.write(Cad)
 		
