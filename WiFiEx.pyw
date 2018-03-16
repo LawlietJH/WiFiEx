@@ -2,6 +2,7 @@
 # Python 3.X
 # Windows
 # WiFiEx
+# Extractor de Contraseñas de Redes Wi-Fi.
 
 import datetime
 import locale
@@ -10,6 +11,23 @@ import os
 
 Version = "v1.2.5"
 Autor = "LawlietJH"
+
+#=======================================================================
+
+#Hide Console
+def Hide(xD=True):
+	
+	import win32console,win32gui
+	window = win32console.GetConsoleWindow()
+	
+	if xD == True:
+		win32gui.ShowWindow(window,0)
+		return True
+	elif xD == False:
+		win32gui.ShowWindow(window,1)
+		return False
+
+Hide()
 
 #=======================================================================
 
@@ -42,8 +60,6 @@ def getESSIDs():
 	ESSID = []
 	
 	Cadena = os.popen("netsh wlan show profiles").read()
-	
-	#~ print(Cadena)
 	
 	Cadena = Cadena.split("Perfil de todos los usuarios")
 	
@@ -166,28 +182,11 @@ def Main():
 
 
 
-#Hide Console
-def Hide(xD=True):
-	
-	import win32console,win32gui
-	window = win32console.GetConsoleWindow()
-	
-	if xD == True:
-		win32gui.ShowWindow(window,0)
-		return True
-	elif xD == False:
-		win32gui.ShowWindow(window,1)
-		return False
-
-
-
 Redes = {}
 
 
 
 if __name__ == "__main__":
-	
-	Hide(True)
 	
 	if isWindows(): Main()
 	else:
