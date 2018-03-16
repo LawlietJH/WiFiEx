@@ -8,7 +8,7 @@ import locale
 import sys
 import os
 
-Version = "v1.2.4"
+Version = "v1.2.5"
 Autor = "LawlietJH"
 
 #=======================================================================
@@ -114,8 +114,8 @@ def SavePasswd():
 	Cad = ""
 	xD = ""
 	
-	open("📶 Pass.ZioN","a")
-	Eny = open("📶 Pass.ZioN","r+")
+	open("📶 Pwd.ZioN","a")
+	Eny = open("📶 Pwd.ZioN","r+")
 	
 	Lineas = Eny.readlines()
 	
@@ -166,15 +166,32 @@ def Main():
 
 
 
+#Hide Console
+def Hide(xD=True):
+	
+	import win32console,win32gui
+	window = win32console.GetConsoleWindow()
+	
+	if xD == True:
+		win32gui.ShowWindow(window,0)
+		return True
+	elif xD == False:
+		win32gui.ShowWindow(window,1)
+		return False
+
+
+
 Redes = {}
 
 
 
 if __name__ == "__main__":
 	
+	Hide(True)
+	
 	if isWindows(): Main()
 	else:
 		print("\n\n\t Compatible Solo Con Windows.")
 		Pause()
 
-	
+
